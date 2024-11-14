@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Picture slideshow</title>
+    <script language="javascript">
+
+        window.onload = function () {
+            var image = document.getElementById("target");
+            var img_array = ["jpg1.jpg", "jpg2.jpg"];
+            var index = 0;
+            var interval = 2000; // msec
+            function slide() {
+                image.src = img_array[index++ % img_array.length];
+            }
+
+            setInterval(slide, interval);
+        }
+    </script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="jpg1.jpg" id="target" />
+</body>
+
+</html>
