@@ -1,0 +1,4 @@
+media:
+  - filename: jpg1.jpg
+    duration: 5
+default_duration: 15
