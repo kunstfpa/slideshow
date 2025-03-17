@@ -1,0 +1,16 @@
+- Portrait images/movies
+- Ordering
+- Security (TLS client certificate?)
+- MOV support
+- MPG support
+- Animated gif?
+- URL's for images/movies
+- URL's for youtube
+- Forward/backward using arrow keys
+- up-arrow(first), down-arrow(last), h(help), space(stop)
+
+- WebGUI for managing media
+  - Upload/remove
+  - Duration
+  - Order
+  - Playlists

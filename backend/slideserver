@@ -1,0 +1,41 @@
+#! python
+
+# Based on https://pythonbasics.org/webserver/
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import yaml
+import json
+from os import listdir
+from os.path import isfile, join
+
+hostName = "localhost"
+serverPort = 8080
+mediadir = "../media"
+
+class MyServer(BaseHTTPRequestHandler):
+    def do_GET(self):
+        media = {}
+        with open("media.yaml", 'r') as stream:
+          mediayaml = yaml.safe_load(stream)
+        for f in listdir(mediadir):
+          if isfile(join(mediadir, f)) and not f.startswith('.'):
+            media[f] = mediayaml['default_duration']
+        if mediayaml['media']:
+          for y in mediayaml['media']:
+            media[y['filename']] = y['duration']
+        self.send_response(200)
+        self.send_header("Content-type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(bytes(json.dumps(dict(sorted(media.items()))), "utf-8"))
+
+if __name__ == "__main__":        
+    webServer = HTTPServer((hostName, serverPort), MyServer)
+    print("Server started http://%s:%s" % (hostName, serverPort))
+
+    try:
+        webServer.serve_forever()
+    except KeyboardInterrupt:
+        pass
+
+    webServer.server_close()
+    print("Server stopped.")
