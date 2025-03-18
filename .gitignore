@@ -1,1 +1,7 @@
-framen-media/.DS_Store
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+Thumbs.db
