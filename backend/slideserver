@@ -1,4 +1,4 @@
-#! python
+#!/usr/bin/python
 
 # Based on https://pythonbasics.org/webserver/
 from http.server import BaseHTTPRequestHandler, HTTPServer

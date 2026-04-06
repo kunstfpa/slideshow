@@ -4,11 +4,12 @@ body {
     height: 100%;
     overflow-y: hidden; /* hide vertical scrollbar */
     overflow-x: hidden; /* hide horizontal scrollbar */
+    background-color: black;
 }
 
 img {
     display: block;
-    width: 100%;
     height: 100%;
+    margin: auto;
     object-fit: cover;
 }

@@ -32,7 +32,7 @@ window.onload = function () {
             img.style.display = "none"
         } else {
             img.src = mediadir.concat(file);
-            img.style.display = "inline";
+            img.style.display = "block";
             video.style.display = "none";
             timeoutID = setTimeout(slide, media[file] * 1000);
         }
